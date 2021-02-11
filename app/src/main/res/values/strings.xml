@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">StackViewFrameworkApp</string>
+    <string name="fan_off">fan_off</string>
+    <string name="fan_low">fan_low</string>
+    <string name="fan_medium">fan_medium</string>
+    <string name="fan_high">fan_high</string>
+    <string name="collapsed_state">collapsed</string>
+    <string name="expanded_state">expanded</string>
+    <string name="invisible_state">invisible</string>
+</resources>

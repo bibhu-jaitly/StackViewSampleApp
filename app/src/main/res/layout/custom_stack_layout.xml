@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
+
+    <com.example.stackviewframeworkapp.StackElement
+        android:id="@+id/sl1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.example.stackviewframeworkapp.StackElement
+        android:id="@+id/sl2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_136dp"
+        android:background="@drawable/container_2_background"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout2" />
+
+
+    <com.example.stackviewframeworkapp.StackElement
+        android:id="@+id/sl3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_216dp"
+        android:background="@drawable/container_3_background"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout2" />
+
+
+    <com.example.stackviewframeworkapp.StackElement
+        android:id="@+id/sl4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_296dp"
+        android:background="@drawable/container_4_background"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout2" />
+
+
+</merge>
