@@ -49,28 +49,40 @@ constructor(
         stack_element_1.position = FIRST
         insertView(stack_element_1)
         stack_element_3.next_step_btn.setOnClickListener {
-            Log.d("onclick", "stack_element_3****")
-            //stackElement3.next_step_btn.isEnabled = false
             stack_element_4.position = FOURTH
             currentActive = FOURTH
             insertView(stack_element_4)
         }
         stack_element_1.next_step_btn.setOnClickListener {
-            Log.d("onclick", "stack_element_1****")
-            // stackElement1.next_step_btn.isEnabled = false
             stack_element_2.position = SECOND
             currentActive = SECOND
             insertView(stack_element_2)
         }
         stack_element_2.next_step_btn.setOnClickListener {
-            Log.d("onclick", "stack_element_2****")
-            // stackElement2.next_step_btn.isEnabled = false
             stack_element_3.position = THIRD
             currentActive = THIRD
             insertView(stack_element_3)
         }
-
         stack_element_4.next_step_btn.visibility = GONE
+        stack_element_1.setOnClickListener {
+            if (stack_element_1.state == ElementState.COLLAPSED) {
+                for (i in 1 until viewStack.size) {
+                    popView()
+                }
+            }
+        }
+        stack_element_2.setOnClickListener {
+            if (stack_element_2.state == ElementState.COLLAPSED) {
+                for (i in 2 until viewStack.size) {
+                    popView()
+                }
+            }
+        }
+        stack_element_3.setOnClickListener {
+            if (stack_element_3.state == ElementState.COLLAPSED) {
+                popView()
+            }
+        }
     }
 
     private fun insertView(stackElement: StackElement) {
@@ -85,16 +97,18 @@ constructor(
     }
 
     private fun popView() {
-        var lastViewPosition: Int? = null
         if (!viewStack.isNullOrEmpty() && viewStack.size > 1) {
             val element = viewStack.removeLast()
             element.state = null
             element.next_step_btn.visibility = GONE
-            lastViewPosition = element.position
             translateOut(element)
             currentActive = currentActive?.minus(1)
         }
-
+        if (!viewStack.isNullOrEmpty() && viewStack.size >= 1) {
+            val element = viewStack.last()
+            element.state = ElementState.EXPANDED
+            element.next_step_btn.visibility = VISIBLE
+        }
     }
 
     fun handleBack() {
@@ -200,7 +214,7 @@ constructor(
     private fun handleExpandedView() {
         if (position == FOURTH) {
             next_step_btn.visibility = GONE
-        }else{
+        } else {
             next_step_btn.visibility = VISIBLE
         }
         collapsed1_tv.visibility = GONE
@@ -208,8 +222,8 @@ constructor(
     }
 
     private fun handleCollapsedView() {
+        next_step_btn.visibility = GONE
         collapsed1_tv.visibility = VISIBLE
-        //expand_iv.visibility = VISIBLE
         collapsed2_tv.visibility = VISIBLE
     }
 
