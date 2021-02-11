@@ -31,10 +31,6 @@ constructor(
 ) : ConstraintLayout(ctx, attributeSet, defStyleAttr) {
 
     private var viewStack: ArrayDeque<StackElement> = ArrayDeque()
-    private lateinit var stackElement1: StackElement
-    private lateinit var stackElement2: StackElement
-    private lateinit var stackElement3: StackElement
-    private lateinit var stackElement4: StackElement
 
     var currentActive: Int? = null
         set(value) {
@@ -50,34 +46,31 @@ constructor(
     }
 
     private fun initialiseVariables() {
-        stackElement1 = sl1
-        stackElement2 = sl2
-        stackElement3 = sl3
-        stackElement4 = sl4
-        stackElement1.position = FIRST
-        insertView(stackElement1)
-        stackElement1.next_step_btn.setOnClickListener {
-            Log.d("stackElement1", "onclick****")
-           // stackElement1.next_step_btn.isEnabled = false
-            stackElement2.position = SECOND
-            currentActive = SECOND
-            insertView(stackElement2)
-        }
-        stackElement2.next_step_btn.setOnClickListener {
-            Log.d("stackElement2", "onclick****")
-           // stackElement2.next_step_btn.isEnabled = false
-            stackElement3.position = THIRD
-            currentActive = THIRD
-            insertView(stackElement3)
-        }
-        stackElement3.next_step_btn.setOnClickListener {
-            Log.d("stackElement3", "onclick****")
+        stack_element_1.position = FIRST
+        insertView(stack_element_1)
+        stack_element_3.next_step_btn.setOnClickListener {
+            Log.d("onclick", "stack_element_3****")
             //stackElement3.next_step_btn.isEnabled = false
-            stackElement4.position = FOURTH
+            stack_element_4.position = FOURTH
             currentActive = FOURTH
-            insertView(stackElement4)
+            insertView(stack_element_4)
         }
-        stackElement4.next_step_btn.visibility = GONE
+        stack_element_1.next_step_btn.setOnClickListener {
+            Log.d("onclick", "stack_element_1****")
+            // stackElement1.next_step_btn.isEnabled = false
+            stack_element_2.position = SECOND
+            currentActive = SECOND
+            insertView(stack_element_2)
+        }
+        stack_element_2.next_step_btn.setOnClickListener {
+            Log.d("onclick", "stack_element_2****")
+            // stackElement2.next_step_btn.isEnabled = false
+            stack_element_3.position = THIRD
+            currentActive = THIRD
+            insertView(stack_element_3)
+        }
+
+        stack_element_4.next_step_btn.visibility = GONE
     }
 
     private fun insertView(stackElement: StackElement) {
@@ -87,53 +80,21 @@ constructor(
             viewStack.last().state = ElementState.COLLAPSED
             viewStack.add(stackElement)
         }
-
         translateIn(stackElement)
+
     }
 
     private fun popView() {
         var lastViewPosition: Int? = null
-        if (!viewStack.isNullOrEmpty()) {
+        if (!viewStack.isNullOrEmpty() && viewStack.size > 1) {
             val element = viewStack.removeLast()
             element.state = null
             lastViewPosition = element.position
             translateOut(element)
             currentActive = currentActive?.minus(1)
         }
-        if (!viewStack.isNullOrEmpty()) {
-            //updateLastItem(lastViewPosition)
-        }
-    }
 
-    private fun updateLastItem(lastPopPosition: Int?) {
-        lastPopPosition?.let { position ->
-            Log.d("position***", "$position")
-            when (position - 1) {
-                FIRST -> {
-                    Log.d("position***", "first")
-                    stackElement1.next_step_btn.isEnabled = true
-                    stackElement2.next_step_btn.isEnabled = false
-                    stackElement3.next_step_btn.isEnabled = false
-                    stackElement1.state = ElementState.EXPANDED
-                }
-                SECOND -> {
-                    Log.d("position***", "second")
-                    stackElement1.next_step_btn.isEnabled = false
-                    stackElement2.next_step_btn.isEnabled = true
-                    stackElement3.next_step_btn.isEnabled = false
-                    stackElement2.state = ElementState.EXPANDED
-                }
-                THIRD -> {
-                    Log.d("position***", "third")
-                    stackElement1.next_step_btn.isEnabled = false
-                    stackElement2.next_step_btn.isEnabled = false
-                    stackElement3.next_step_btn.isEnabled = true
-                    stackElement3.state = ElementState.EXPANDED
-                }
-            }
-        }
     }
-
 
     fun handleBack() {
         popView()
@@ -164,15 +125,6 @@ constructor(
         animate.fillAfter = true
         view.startAnimation(animate)
     }
-
-    fun clearData() {
-        /*  stackElement1.state = ElementState.EXPANDED
-          stackElement2.state = null
-          stackElement3.state = null
-          stackElement4.state = null*/
-    }
-
-
 }
 
 class StackElement @JvmOverloads
@@ -250,7 +202,7 @@ constructor(
         }
         collapsed1_tv.visibility = GONE
         collapsed2_tv.visibility = GONE
-       // expand_iv.visibility = GONE
+        // expand_iv.visibility = GONE
     }
 
     private fun handleCollapsedView() {

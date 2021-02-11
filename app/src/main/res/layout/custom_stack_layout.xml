@@ -6,7 +6,7 @@
     android:background="@color/light_gray">
 
     <com.example.stackviewframeworkapp.StackElement
-        android:id="@+id/sl1"
+        android:id="@+id/stack_element_1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
@@ -16,7 +16,7 @@
 
 
     <com.example.stackviewframeworkapp.StackElement
-        android:id="@+id/sl2"
+        android:id="@+id/stack_element_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -27,7 +27,7 @@
 
 
     <com.example.stackviewframeworkapp.StackElement
-        android:id="@+id/sl3"
+        android:id="@+id/stack_element_3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -38,7 +38,7 @@
 
 
     <com.example.stackviewframeworkapp.StackElement
-        android:id="@+id/sl4"
+        android:id="@+id/stack_element_4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"

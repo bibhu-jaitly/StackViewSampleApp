@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         if (demoStackLayout.isVisible) {
             if (demoStackLayout.currentActive == 0) {
                 demoStackLayout.visibility = View.GONE
-                demoStackLayout.clearData()
+             //   demoStackLayout.clearData()
                 explore_btn.visibility = View.VISIBLE
             } else {
                 demoStackLayout.handleBack()
