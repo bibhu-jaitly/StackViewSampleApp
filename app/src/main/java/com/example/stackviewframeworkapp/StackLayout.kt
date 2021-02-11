@@ -89,6 +89,7 @@ constructor(
         if (!viewStack.isNullOrEmpty() && viewStack.size > 1) {
             val element = viewStack.removeLast()
             element.state = null
+            element.next_step_btn.visibility = GONE
             lastViewPosition = element.position
             translateOut(element)
             currentActive = currentActive?.minus(1)
@@ -101,7 +102,6 @@ constructor(
     }
 
     private fun translateIn(view: StackElement) {
-        view.visibility = VISIBLE
         val animate = TranslateAnimation(
             0F,
             0F,
@@ -111,10 +111,10 @@ constructor(
         animate.duration = 500
         animate.fillAfter = true
         view.startAnimation(animate)
+        view.visibility = VISIBLE
     }
 
     private fun translateOut(view: StackElement) {
-        view.visibility = GONE
         val animate = TranslateAnimation(
             0F,
             0F,
@@ -124,6 +124,7 @@ constructor(
         animate.duration = 300
         animate.fillAfter = true
         view.startAnimation(animate)
+        view.visibility = GONE
     }
 }
 
@@ -199,10 +200,11 @@ constructor(
     private fun handleExpandedView() {
         if (position == FOURTH) {
             next_step_btn.visibility = GONE
+        }else{
+            next_step_btn.visibility = VISIBLE
         }
         collapsed1_tv.visibility = GONE
         collapsed2_tv.visibility = GONE
-        // expand_iv.visibility = GONE
     }
 
     private fun handleCollapsedView() {
