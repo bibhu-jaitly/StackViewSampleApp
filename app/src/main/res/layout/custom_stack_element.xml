@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/collapsed1_tv"
         toolNs:text="Rs 4000 /mo" />
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/expand_iv"
         android:layout_width="@dimen/_30dp"
         android:layout_height="@dimen/_30dp"
@@ -42,7 +42,7 @@
         android:src="@drawable/ic_down_arrow"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/some_data_tv"

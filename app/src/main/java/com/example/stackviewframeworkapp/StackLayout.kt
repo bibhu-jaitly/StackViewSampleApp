@@ -250,12 +250,12 @@ constructor(
         }
         collapsed1_tv.visibility = GONE
         collapsed2_tv.visibility = GONE
-        expand_iv.visibility = GONE
+       // expand_iv.visibility = GONE
     }
 
     private fun handleCollapsedView() {
         collapsed1_tv.visibility = VISIBLE
-        expand_iv.visibility = VISIBLE
+        //expand_iv.visibility = VISIBLE
         collapsed2_tv.visibility = VISIBLE
     }
 
