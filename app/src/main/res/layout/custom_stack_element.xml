@@ -5,32 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/collapsed1_tv"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/collapsed_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_24dp"
-        android:layout_marginTop="@dimen/_16dp"
-        android:textSize="@dimen/_14sp"
-        android:textColor="@color/white"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        toolNs:text="EMI" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/collapsed2_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/collapsed1_tv"
-        android:layout_marginStart="@dimen/_24dp"
-        android:layout_marginTop="@dimen/_8dp"
-        android:textSize="@dimen/_16sp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/collapsed1_tv"
-        toolNs:text="Rs 4000 /mo" />
+        <TextView
+            android:id="@+id/collapsed1_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            toolNs:text="EMI" />
+
+        <TextView
+            android:id="@+id/collapsed2_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/collapsed1_tv"
+            android:layout_marginStart="@dimen/_24dp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:textSize="@dimen/_16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/collapsed1_tv"
+            toolNs:text="Rs 4000 /mo" />
+
+    </LinearLayout>
 
     <!--<ImageView
         android:id="@+id/expand_iv"

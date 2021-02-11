@@ -64,21 +64,21 @@ constructor(
             insertView(stack_element_3)
         }
         stack_element_4.next_step_btn.visibility = GONE
-        stack_element_1.setOnClickListener {
+        stack_element_1.collapsed_container.setOnClickListener {
             if (stack_element_1.state == ElementState.COLLAPSED) {
                 for (i in 1 until viewStack.size) {
                     popView()
                 }
             }
         }
-        stack_element_2.setOnClickListener {
+        stack_element_2.collapsed_container.setOnClickListener {
             if (stack_element_2.state == ElementState.COLLAPSED) {
                 for (i in 2 until viewStack.size) {
                     popView()
                 }
             }
         }
-        stack_element_3.setOnClickListener {
+        stack_element_3.collapsed_container.setOnClickListener {
             if (stack_element_3.state == ElementState.COLLAPSED) {
                 popView()
             }
