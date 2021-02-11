@@ -15,7 +15,6 @@ import kotlin.collections.ArrayDeque
 enum class ElementState(val label: Int) {
     COLLAPSED(R.string.collapsed_state),
     EXPANDED(R.string.expanded_state),
-    INVISIBLE(R.string.invisible_state)
 }
 
 private const val FIRST = 0
@@ -32,7 +31,7 @@ constructor(
 
     private var viewStack: ArrayDeque<StackElement> = ArrayDeque()
 
-    var currentActive: Int? = null
+    private var currentActive: Int? = null
         set(value) {
             field = value
         }
