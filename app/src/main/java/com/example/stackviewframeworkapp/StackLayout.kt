@@ -31,7 +31,7 @@ constructor(
 
     private var viewStack: ArrayDeque<StackElement> = ArrayDeque()
 
-    private var currentActive: Int? = null
+    var currentActive: Int? = null
         set(value) {
             field = value
         }
